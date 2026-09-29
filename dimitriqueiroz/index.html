@@ -394,7 +394,7 @@
       align-items: center;
       justify-content: center;
       gap: 26px;
-      background: var(--loubus-bg);
+      background: #FFFFFF;
       transition: opacity 0.5s ease, visibility 0.5s ease;
     }
 
@@ -407,19 +407,20 @@
     #preloader .preloader-logo {
       width: 56px;
       height: auto;
+      filter: brightness(0);
       animation: preloader-pulse 1.3s ease-in-out infinite;
     }
 
     @keyframes preloader-pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.65; transform: scale(0.92); }
+      50% { opacity: 0.55; transform: scale(0.92); }
     }
 
     .preloader-bar-track {
       width: 160px;
       height: 3px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(15, 23, 42, 0.1);
       overflow: hidden;
     }
 
@@ -427,14 +428,14 @@
       width: 0%;
       height: 100%;
       border-radius: 999px;
-      background: linear-gradient(90deg, #10B981, #34D399);
+      background: linear-gradient(90deg, #2563EB, #3B82F6);
     }
 
     .preloader-percent {
       font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.05em;
-      color: rgba(255, 255, 255, 0.55);
+      color: rgba(15, 23, 42, 0.55);
       font-variant-numeric: tabular-nums;
     }
 
