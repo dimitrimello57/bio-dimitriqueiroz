@@ -106,7 +106,7 @@
       height: 92px;
       border-radius: 50%;
       padding: 3px;
-      background: linear-gradient(135deg, #10B981, #0F172A);
+      background: #2563EB;
       box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     }
 
@@ -124,6 +124,14 @@
       font-weight: 800;
       letter-spacing: -0.02em;
       color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .verified-badge {
+      flex-shrink: 0;
     }
 
     .profile-info p {
@@ -473,7 +481,7 @@
         <img src="foto.jpg" alt="Dimitri Queiroz" class="avatar-img">
       </div>
       <div class="profile-info">
-        <h1>Dimitri Queiroz</h1>
+        <h1>Dimitri Queiroz <svg class="verified-badge" viewBox="0 0 40 40" width="18" height="18" role="img" aria-label="Verificado"><path fill-rule="evenodd" clip-rule="evenodd" fill="#3797EF" d="M19.998 3.094 14.638 0l-2.972 5.15H5.5v6.166L0 14.64 3.094 20 0 25.359l5.5 3.325v5.947h5.966L14.638 40l5.36-3.094L25.358 40l3.325-5.5h5.822v-5.947L40 25.359 36.906 20 40 14.64l-5.495-3.324V5.15h-5.822L25.358 0Zm7.415 11.225L18.6 23.55l-6.303-6.301 2.807-2.807 3.396 3.396 6.011-7.615Z"/></svg></h1>
         <p>Designer & Estrategista Visual<br>Criando marcas fortes e experiências digitais.</p>
       </div>
     </header>
