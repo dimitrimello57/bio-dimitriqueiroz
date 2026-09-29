@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dimitri Queiroz | Links</title>
+
+  <!-- Fontes Google: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --bg-color: #F3F4F6;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+
+      /* Cards escuros da imagem */
+      --card-dark-bg: #121214;
+      --card-dark-btn: #27272A;
+      --card-dark-btn-hover: #3F3F46;
+      --card-dark-border: rgba(255, 255, 255, 0.08);
+
+      /* WhatsApp Hero Gradient */
+      --wa-gradient: linear-gradient(135deg, #059669 0%, #10B981 50%, #34D399 100%);
+      --wa-shadow: 0 14px 30px -6px rgba(16, 185, 129, 0.38);
+
+      /* Loubus Card */
+      --loubus-bg: #0F172A;
+      --loubus-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 32px 16px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Fundo decorativo suave */
+    .bg-glow-top {
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.09) 0%, rgba(243, 244, 246, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bg-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(#cbd5e1 0.8px, transparent 0.8px);
+      background-size: 24px 24px;
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* CONTAINER PRINCIPAL */
+    .container {
+      width: 100%;
+      max-width: 440px;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .profile-header {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, #10B981, #0F172A);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background-color: #E2E8F0;
+      border: 3px solid #FFFFFF;
+    }
+
+    .profile-info h1 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+    }
+
+    .profile-info p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .banner-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 18px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 1. WHATSAPP (HERO HIGHLIGHT) */
+    .banner-card.whatsapp {
+      background: var(--wa-gradient);
+      color: #FFFFFF;
+      box-shadow: var(--wa-shadow);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .banner-card.whatsapp::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .banner-card.whatsapp .icon-box {
+      background: rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(8px);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .banner-card.whatsapp .arrow-box {
+      background: rgba(255, 255, 255, 0.22);
+      color: #FFFFFF;
+    }
+
+    /* 2. LOUBUS SITE */
+    .banner-card.loubus {
+      background: var(--loubus-bg);
+      color: #FFFFFF;
+      box-shadow: var(--loubus-shadow);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .banner-card.loubus .icon-box {
+      background: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .banner-card.loubus .arrow-box {
+      background: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+    }
+
+    /* ELEMENTOS INTERNOS DOS BANNERS */
+    .card-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex: 1;
+      padding-right: 12px;
+    }
+
+    .icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .text-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .link-title {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: #FFFFFF;
+    }
+
+    .link-desc {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.35;
+    }
+
+    .arrow-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .banner-card:hover {
+      transform: translateY(-3px) scale(1.01);
+    }
+
+    .banner-card:hover .arrow-box {
+      transform: translateX(3px);
+    }
+
+    .grid-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .grid-card {
+      background-color: var(--card-dark-bg);
+      border-radius: 24px;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      min-height: 220px;
+      text-decoration: none;
+      border: 1px solid var(--card-dark-border);
+      box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.15);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .grid-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 32px -8px rgba(0, 0, 0, 0.25);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    /* Ícones dos Cards Escuros */
+    .social-app-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .social-app-icon.youtube {
+      background-color: #FF0000;
+      color: #FFFFFF;
+    }
+
+    .social-app-icon.behance {
+      background-color: #0057FF;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 1.4rem;
+      letter-spacing: -0.03em;
+    }
+
+    .grid-card-title {
+      color: #FFFFFF;
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-top: 14px;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    /* Botão estilo Pílula Interno */
+    .pill-button {
+      width: 100%;
+      background-color: var(--card-dark-btn);
+      color: #E4E4E7;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 10px 12px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .grid-card:hover .pill-button {
+      background-color: var(--card-dark-btn-hover);
+      color: #FFFFFF;
+    }
+
+    /* RODAPÉ */
+    footer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: #94A3B8;
+      font-weight: 500;
+      margin-top: 8px;
+    }
+
+    footer strong {
+      color: var(--text-main);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-glow-top"></div>
+  <div class="bg-grid"></div>
+
+  <main class="container">
+
+    <header class="profile-header">
+      <div class="avatar-wrapper">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Dimitri Queiroz" class="avatar-img">
+      </div>
+      <div class="profile-info">
+        <h1>Dimitri Queiroz</h1>
+        <p>Designer & Estrategista Visual<br>Criando marcas fortes e experiências digitais.</p>
+      </div>
+    </header>
+
+
+    <!-- 1. WHATSAPP (MÁXIMO DESTAQUE / HERO GRADIENT) -->
+    <a href="https://wa.me/seu-numero" class="banner-card whatsapp" target="_blank" rel="noopener">
+      <div class="card-left">
+        <div class="icon-box">
+          <i data-lucide="message-circle" style="width: 24px; height: 24px;"></i>
+        </div>
+        <div class="text-content">
+          <span class="link-title">Falar no WhatsApp</span>
+          <span class="link-desc">Orçamentos rápidos ou dúvidas de projetos.</span>
+        </div>
+      </div>
+      <div class="arrow-box">
+        <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
+      </div>
+    </a>
+
+    <!-- 2. SITE DA LOUBUS -->
+    <a href="https://loubus.com" class="banner-card loubus" target="_blank" rel="noopener">
+      <div class="card-left">
+        <div class="icon-box">
+          <i data-lucide="globe" style="width: 24px; height: 24px;"></i>
+        </div>
+        <div class="text-content">
+          <span class="link-title">Site da Loubus</span>
+          <span class="link-desc">Conheça nossa estrutura e portfólio de cases.</span>
+        </div>
+      </div>
+      <div class="arrow-box">
+        <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
+      </div>
+    </a>
+
+    <!-- 3 & 4. GRID REPLICADO DA IMAGEM DA REFERÊNCIA -->
+    <section class="grid-section">
+
+      <!-- CARD YOUTUBE -->
+      <a href="https://youtube.com/@seu-canal" class="grid-card" target="_blank" rel="noopener">
+        <div>
+          <div class="social-app-icon youtube">
+            <i data-lucide="play" style="width: 26px; height: 26px; fill: currentColor;"></i>
+          </div>
+          <h2 class="grid-card-title">Canal do<br>Youtbe</h2>
+        </div>
+        <div class="pill-button">
+          ME INSCREVER <span style="font-size: 0.9rem; line-height: 1;">↗</span>
+        </div>
+      </a>
+
+      <!-- CARD BEHANCE -->
+      <a href="https://behance.net/seu-usuario" class="grid-card" target="_blank" rel="noopener">
+        <div>
+          <div class="social-app-icon behance">
+            Bē
+          </div>
+          <h2 class="grid-card-title">Conheça<br>meu Behance</h2>
+        </div>
+        <div class="pill-button">
+          VER PORTFÓLIO <span style="font-size: 0.9rem; line-height: 1;">↗</span>
+        </div>
+      </a>
+
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+      <p>© 2026 <strong>Dimitri Queiroz</strong> • Todos os direitos reservados</p>
+    </footer>
+
+  </main>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
