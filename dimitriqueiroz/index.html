@@ -383,16 +383,91 @@
     footer strong {
       color: var(--text-main);
     }
+
+    /* PRÉ-CARREGAMENTO (LOGO + BARRA 0-100%) */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+      background: var(--loubus-bg);
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    #preloader.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    #preloader .preloader-logo {
+      width: 56px;
+      height: auto;
+      animation: preloader-pulse 1.3s ease-in-out infinite;
+    }
+
+    @keyframes preloader-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.65; transform: scale(0.92); }
+    }
+
+    .preloader-bar-track {
+      width: 160px;
+      height: 3px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.15);
+      overflow: hidden;
+    }
+
+    .preloader-bar-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #10B981, #34D399);
+    }
+
+    .preloader-percent {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: rgba(255, 255, 255, 0.55);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ANIMAÇÕES DE ENTRADA DO CONTEÚDO */
+    .animate-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    body.is-loaded .profile-header.animate-in { opacity: 1; transform: translateY(0); transition-delay: 0.05s; }
+    body.is-loaded .banner-card.whatsapp.animate-in { opacity: 1; transform: translateY(0); transition-delay: 0.15s; }
+    body.is-loaded .banner-card.loubus.animate-in { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
+    body.is-loaded .grid-section.animate-in { opacity: 1; transform: translateY(0); transition-delay: 0.35s; }
+    body.is-loaded footer.animate-in { opacity: 1; transform: translateY(0); transition-delay: 0.45s; }
   </style>
 </head>
 <body>
+
+  <div id="preloader">
+    <img src="favicon.svg" alt="Loubus" class="preloader-logo">
+    <div class="preloader-bar-track">
+      <div class="preloader-bar-fill" id="preloader-bar-fill"></div>
+    </div>
+    <span class="preloader-percent" id="preloader-percent">0%</span>
+  </div>
 
   <div class="bg-glow-top"></div>
   <div class="bg-grid"></div>
 
   <main class="container">
 
-    <header class="profile-header">
+    <header class="profile-header animate-in">
       <div class="avatar-wrapper">
         <img src="foto.jpg" alt="Dimitri Queiroz" class="avatar-img">
       </div>
@@ -404,7 +479,7 @@
 
 
     <!-- 1. WHATSAPP (MÁXIMO DESTAQUE / HERO GRADIENT) -->
-    <a href="https://api.whatsapp.com/send/?phone=5582993827390&text=Opa+Dimitri%2C+gostaria+de+fazer+um+or%C3%A7amento+contigo&type=phone_number&app_absent=0" class="banner-card whatsapp" target="_blank" rel="noopener">
+    <a href="https://api.whatsapp.com/send/?phone=5582993827390&text=Opa+Dimitri%2C+gostaria+de+fazer+um+or%C3%A7amento+contigo&type=phone_number&app_absent=0" class="banner-card whatsapp animate-in" target="_blank" rel="noopener">
       <svg class="border-draw" aria-hidden="true"><rect pathLength="100"></rect></svg>
       <div class="card-left">
         <div class="icon-box">
@@ -421,7 +496,7 @@
     </a>
 
     <!-- 2. SITE DA LOUBUS -->
-    <a href="https://lp.loubus.com/" class="banner-card loubus" target="_blank" rel="noopener">
+    <a href="https://lp.loubus.com/" class="banner-card loubus animate-in" target="_blank" rel="noopener">
       <div class="card-left">
         <div class="icon-box">
           <svg width="20" height="23" viewBox="0 0 229 265" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M134.637 91.8242L151.196 108.964L151.207 108.952L168.643 126.872L168.57 126.945L200.328 159.814L208.729 168.509L200.319 177.194L124.319 255.694L115.368 264.94L106.387 255.724L29.8867 177.224L21.2021 168.312L30.0742 159.588L62.1777 128.017L0 65.8389L1.83887 64H33.5166L80.0039 110.487L80.1299 110.362L97.8076 128.04L97.6816 128.165L114.839 145.322L133.516 126.645L116.811 109.354L116.73 109.433L99.2676 91L99.167 91.0928L12.1191 1H46.8818L117.265 73.8457L192.359 0H228.014L134.637 91.8242ZM123.678 171.839L114.839 180.678L79.8564 145.695L56.4756 168.688L115.309 229.06L173.949 168.491L150.89 144.626L123.678 171.839ZM225.678 69.8389L180.132 115.383L162.237 97.9219L191.161 69H224.839L225.678 69.8389Z" fill="white"/></svg>
@@ -437,7 +512,7 @@
     </a>
 
     <!-- 3 & 4. GRID REPLICADO DA IMAGEM DA REFERÊNCIA -->
-    <section class="grid-section">
+    <section class="grid-section animate-in">
 
       <!-- CARD YOUTUBE -->
       <a href="https://www.youtube.com/channel/UCErbWP0pzAm8aAs4zhzSyPg" class="grid-card" target="_blank" rel="noopener">
@@ -468,7 +543,7 @@
     </section>
 
     <!-- RODAPÉ -->
-    <footer>
+    <footer class="animate-in">
       <p>© 2026 <strong>Dimitri Queiroz</strong> • Todos os direitos reservados</p>
     </footer>
 
@@ -476,6 +551,37 @@
 
   <script>
     lucide.createIcons();
+
+    (function () {
+      var DURATION = 2600; // ms para a barra ir de 0% a 100% (dentro do limite de 3s)
+      var fill = document.getElementById('preloader-bar-fill');
+      var percentLabel = document.getElementById('preloader-percent');
+      var preloader = document.getElementById('preloader');
+      var start = null;
+
+      function tick(timestamp) {
+        if (start === null) start = timestamp;
+        var elapsed = timestamp - start;
+        var progress = Math.min(elapsed / DURATION, 1);
+        var pct = Math.round(progress * 100);
+
+        fill.style.width = pct + '%';
+        percentLabel.textContent = pct + '%';
+
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          setTimeout(finish, 250);
+        }
+      }
+
+      function finish() {
+        preloader.classList.add('is-hidden');
+        document.body.classList.add('is-loaded');
+      }
+
+      requestAnimationFrame(tick);
+    })();
   </script>
 </body>
 </html>
